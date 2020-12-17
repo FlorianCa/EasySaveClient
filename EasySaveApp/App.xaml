@@ -1,0 +1,122 @@
+﻿<Application x:Class="EasySaveApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:EasySaveApp"
+             xmlns:views="clr-namespace:EasySaveApp.Views"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             StartupUri="Views/View.xaml">
+    <Application.Resources>
+        <!--Define app colors-->
+        <SolidColorBrush x:Key="CustomBlack" Color="#1A1C20"/>
+        <SolidColorBrush x:Key="CustomWhite" Color="#F4F4F4"/>
+        <SolidColorBrush x:Key="CustomOrange" Color="#F0A500"/>
+
+        <!--Define headers style-->
+        <Style TargetType="{x:Type TextBlock}" x:Key="Header1">
+            <Setter Property="Foreground" Value="{StaticResource CustomOrange}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        
+        <Style TargetType="{x:Type TextBlock}" x:Key="Header2">
+            <Setter Property="Foreground" Value="{StaticResource CustomWhite}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        
+        <!--Define form items style-->
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="{StaticResource CustomWhite}"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Bottom"></Setter>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="BorderBrush" Value="{StaticResource CustomWhite}"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource CustomWhite}"></Setter>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="10 5"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+            <Setter Property="FontWeight" Value="SemiBold"></Setter>
+            <Setter Property="Cursor" Value="Hand"></Setter>
+            <Setter Property="Background" Value="{StaticResource CustomWhite}"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource CustomBlack}"></Setter>
+        </Style>
+
+        <Style TargetType="Button" x:Key="PathButton">
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource CustomWhite}"></Setter>
+            <Setter Property="Cursor" Value="Hand"></Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource CustomWhite}"></Setter>
+                    <Setter Property="Foreground" Value="{StaticResource CustomBlack}"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--Define ComboBox style-->
+        <Style TargetType="ComboBox">
+            <Setter Property="Foreground" Value="{StaticResource CustomBlack}"/>
+            <Setter Property="Background" Value="{StaticResource CustomOrange}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+        <!---Define combobox item style-->
+        <Style x:Key="ComboboxItemStyle" TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="{StaticResource CustomWhite}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="{StaticResource CustomOrange}" />
+                    <Setter Property="Foreground" Value="{StaticResource CustomBlack}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="TitleBarButtonStyle" TargetType="Button">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+					x:Name="border"
+					Background="Transparent"
+					BorderThickness="0"
+					SnapsToDevicePixels="true">
+                            <ContentPresenter
+						x:Name="contentPresenter"
+						Margin="0"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Focusable="False"
+						RecognizesAccessKey="True" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="Transparent" />
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="Transparent" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ListBox">
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+    </Application.Resources>
+</Application>

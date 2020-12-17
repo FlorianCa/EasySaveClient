@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="EasySaveApp.Views.ParametersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasySaveApp.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:lang="clr-namespace:EasySaveApp.Resources">
+
+    <UserControl.Resources>
+        <Style TargetType="Label" x:Key="StyleLabelTitle">
+            <Setter Property="Foreground" Value="{StaticResource CustomWhite}"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+        <Style TargetType="Label" x:Key="StyleLabel">
+            <Setter Property="Foreground" Value="{StaticResource CustomWhite}"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Bottom"></Setter>
+        </Style>
+        <Style TargetType="ListBox" x:Key="ListStyle">
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource CustomWhite}"></Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="{x:Static lang:Resources.Parameters}" Grid.Row="0" Grid.Column="0" Style="{StaticResource StyleLabelTitle}"></Label>
+        <Button Command="{Binding Path=SelectFrench}" Content="{x:Static lang:Resources.French}" Grid.Row="0" Grid.Column="1"></Button>
+        <Button Command="{Binding Path=SelectEnglish}"  Content="{x:Static lang:Resources.English}" Grid.Column="2" Grid.Row="0"></Button>
+    </Grid>
+</UserControl>
